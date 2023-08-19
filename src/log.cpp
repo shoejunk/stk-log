@@ -1,4 +1,3 @@
-// Copyright Shoejunk Industries 2023
 // Log Libraries:
 #include "config.h"
 
