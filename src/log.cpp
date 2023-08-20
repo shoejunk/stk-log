@@ -9,6 +9,7 @@ namespace NSTK
 {
 	void Log(char const* ksFormat, ...)
 	{
+#ifndef NDEBUG
 		va_list aList;
 		va_start(aList, ksFormat);
 		size_t uSize = _vscprintf(ksFormat, aList);
@@ -18,5 +19,6 @@ namespace NSTK
 		std::cout << aBuffer;
 		delete[] aBuffer;
 		va_end(aList);
+#endif
 	}
 }
