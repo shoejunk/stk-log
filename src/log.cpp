@@ -1,6 +1,3 @@
-// Log Libraries:
-#include "config.h"
-
 // System Libraries:
 #include <iostream>
 #include "windows.h"
