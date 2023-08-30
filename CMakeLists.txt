@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.24)
-project(Log VERSION 1.0.1)
+project(Log VERSION 1.0.2)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 # configure_file(src/config.h.in config.h)
@@ -22,6 +22,9 @@ include(${CPM_DOWNLOAD_LOCATION})
 CPMAddPackage("gh:TheLartians/PackageProject.cmake@1.11.0")
 
 file(GLOB_RECURSE headers CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h")
+
+# being a cross-platform target, we enforce standards conformance on MSVC
+target_compile_options(${PROJECT_NAME} PUBLIC "$<$<COMPILE_LANG_AND_ID:CXX,MSVC>:/permissive->")
 
 # the location where the project's version header will be placed should match the project's regular
 # header paths
